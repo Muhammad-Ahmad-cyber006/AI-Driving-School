@@ -1,0 +1,124 @@
+:root {
+    --panel-bg: rgba(20, 21, 26, 0.92);
+    --panel-fg: #f1f1f4;
+    --accent: #fbbf24;
+    --accent-2: #38bdf8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #6b6f76;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+#carCanvas {
+    background: #6b6f76;
+}
+
+#networkCanvas {
+    background: #05060a;
+}
+
+#controlPanel {
+    background: var(--panel-bg);
+    color: var(--panel-fg);
+    width: 190px;
+    margin-top: 14px;
+    padding: 10px 12px 12px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 2;
+}
+
+#panelHeader {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+#stats {
+    font-size: 0.68rem;
+    line-height: 1.4;
+    color: #d7d7de;
+    text-align: center;
+}
+
+#statusMessage {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-align: center;
+    min-height: 1.1em;
+}
+
+#buttonRow {
+    display: flex;
+    gap: 6px;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 0.72rem;
+    color: #1a1a1a;
+    background: #e5e7eb;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.15s ease;
+    flex: 1;
+}
+button:hover {
+    background: var(--accent);
+}
+button:active {
+    transform: scale(0.96);
+}
+button:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 2px;
+}
+
+#settingsForm {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 8px;
+}
+#settingsForm.hidden {
+    display: none;
+}
+#settingsForm label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+}
+#settingsForm input {
+    width: 60px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background: #23242b;
+    color: var(--panel-fg);
+    text-align: right;
+}
+#settingsButtonRow {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+}

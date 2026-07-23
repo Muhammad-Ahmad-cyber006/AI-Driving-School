@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Self-driving car - No libraries</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="carCanvas" aria-label="Simulation view"></canvas>
+
+<div id="controlPanel">
+<div id="panelHeader">🚗 AI Driving School</div>
+
+<div id="stats" role="status"></div>
+<div id="statusMessage" role="status"></div>
+
+<div id="buttonRow">
+<button onclick="save()" title="Save the current best brain">💾 Save</button>
+<button onclick="discard()" title="Discard the saved brain">🗑️ Discard</button>
+<button type="button" id="toggleSettings" title="Simulation settings">⚙️ Settings</button>
+</div>
+
+<form id="settingsForm" class="hidden">
+<label>
+Population
+<input type="number" name="population" min="10" max="500" step="10">
+</label>
+<label>
+Mutation amount
+<input type="number" name="mutation" min="0" max="1" step="0.01">
+</label>
+<label>
+Lanes
+<input type="number" name="laneCount" min="2" max="6" step="1">
+</label>
+<label>
+Give up after (sec)
+<input type="number" name="stagnation" min="1" max="30" step="1">
+</label>
+<div id="settingsButtonRow">
+<button type="submit">Apply &amp; restart</button>
+<button type="button" id="resetSettings">Reset to defaults</button>
+</div>
+</form>
+</div>
+
+<canvas id="networkCanvas" aria-label="Neural network visualization"></canvas>
+
+<!--Load order matters: each script depends on previous ones-->
+<script src="utils.js"></script>
+<script src="visualizer.js"></script>
+<script src="network.js"></script>
+<script src="sensor.js"></script>
+<script src="road.js"></script>
+<script src="controls.js"></script>
+<script src="car.js"></script>
+<script src="main.js"></script>
+<script>
+//Toggle settings form
+document.getElementById("toggleSettings").addEventListener("click",()=>{
+document.getElementById("settingsForm").classList.toggle("hidden");
+});
+</script>
+</body>
+</html>
